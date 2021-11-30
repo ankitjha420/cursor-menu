@@ -1,0 +1,76 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    cursor: none;
+}
+
+.wrapper{
+    height: 100%;
+    width: 100%;
+    background-color: wheat;
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+    'sideL top sideR'
+    'sideL content sideR'
+    'sideL bottom sideR';
+}
+
+.content{
+    grid-area: content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    position: relative;
+}
+
+h1{
+    z-index: 5;
+    font-weight: 1800;
+    font-size: 64px;
+    mix-blend-mode: darken;
+}
+
+h1, .imgcntr{
+    position: absolute;
+    top: 40%;
+    right: 30%;
+}
+
+.imgcntr{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+    opacity: 0;
+}
+
+.cursor{
+    position: absolute;
+    border: solid 1px black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    z-index: 10;
+}

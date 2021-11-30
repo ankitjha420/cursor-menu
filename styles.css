@@ -1,0 +1,88 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  cursor: none;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: wheat;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 3fr 0.5fr;
+      grid-template-columns: 0.5fr 3fr 0.5fr;
+  -ms-grid-rows: 1fr 2fr 1fr;
+      grid-template-rows: 1fr 2fr 1fr;
+      grid-template-areas: 'sideL top sideR' 'sideL content sideR' 'sideL bottom sideR';
+}
+
+.content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item {
+  position: relative;
+  height: 100%;
+  width: 30%;
+  position: relative;
+}
+
+h1 {
+  z-index: 5;
+  font-weight: 1800;
+  font-size: 64px;
+  mix-blend-mode: darken;
+}
+
+h1, .imgcntr {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+}
+
+.imgcntr {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 100%;
+     object-position: 50% 100%;
+  opacity: 0;
+}
+
+.cursor {
+  position: absolute;
+  border: solid 1px black;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  z-index: 10;
+}
+/*# sourceMappingURL=styles.css.map */

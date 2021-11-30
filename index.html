@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>cursor menu</title>
+</head>
+<body>
+<div class="cursor"></div>
+<div class="wrapper">
+    <div class="content">
+
+        <div class="item item-1">
+            <div class="imgcntr item-1-img">
+                <img src="./item-1.jpg" alt="item1img">
+            </div>
+            <h1>Montreal</h1>
+        </div>
+
+        <div class="item item-2">
+            <div class="imgcntr item-2-img">
+                <img src="./item-2.jpg" alt="item2img">
+            </div>
+            <h1>Paris</h1>
+        </div>
+
+        <div class="item item-3">
+            <div class="imgcntr item-3-img">
+                <img src="./item-3.jpg" alt="item3img">
+            </div>
+            <h1>Mumbai</h1>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" 
+integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+// make an array of all items and give them an event listener
+
+const itemArr = [...document.querySelectorAll('.item')]
+itemArr.forEach((item) => {
+    const pic = item.querySelector('img')
+    const heading = item.querySelector('h1')
+
+    // random values
+    let randomX = gsap.utils.random(-100 , 80)
+    let randomY = gsap.utils.random(0, -100)
+    let rot = gsap.utils.random(-15, 15)
+
+    heading.addEventListener('mouseenter', (e) => {
+        gsap.set( pic , {autoAlpha: 0})
+        gsap.to( pic , {duration: 0.5,
+        autoAlpha: 1,
+        scale: 0.7,
+        x: (gsap.utils.random(-100 , 80)),
+        y: (gsap.utils.random(0, -100)),
+        rotate: (gsap.utils.random(-15, 15)),
+        ease: 'Power4.out'})
+    })
+
+    heading.addEventListener('mouseleave', (e) => {
+        gsap.to( pic , {duration: 0.5,
+        autoAlpha: 0,
+        scale: 1,
+        x: 0,
+        y: 0,
+        rot: 0,
+        ease: 'Power4.in'})
+    })
+})
+
+// animating the cursor
+
+const cursor = document.querySelector('.cursor')
+
+document.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e
+    gsap.to(cursor , {duration: 0.3,
+    x: clientX,
+    y: clientY,
+    })
+})
+
+console.log('ok')    
+</script>
+</body>
+</html>
